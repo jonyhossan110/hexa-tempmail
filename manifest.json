@@ -1,0 +1,36 @@
+{
+  "action": {
+    "default_icon": {
+      "128": "icons/icon128.png",
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png"
+    },
+    "default_popup": "popup.html",
+    "default_title": "Hexa TempMail"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "description": "Temporary email + OTP receiver by HexaCyberLab. Create temp addresses on your choice of domain, auto-detect OTP codes and verification links, keep a recent-code history, fill signup forms in one click or by right-click.",
+  "host_permissions": [
+    "https://api.mail.tm/*"
+  ],
+  "icons": {
+    "128": "icons/icon128.png",
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png"
+  },
+  "manifest_version": 3,
+  "name": "Hexa TempMail \u2014 Temporary Email + OTP",
+  "permissions": [
+    "storage",
+    "alarms",
+    "notifications",
+    "scripting",
+    "activeTab",
+    "tabs",
+    "clipboardWrite",
+    "contextMenus"
+  ],
+  "version": "2.0.0"
+}

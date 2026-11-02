@@ -1,0 +1,8 @@
+# Local account backups — contain mailbox passwords, never commit
+hexa-tempmail-accounts.json
+*-accounts.json
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+*.swp

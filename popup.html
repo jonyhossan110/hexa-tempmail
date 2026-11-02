@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hexa TempMail</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="popup">
+<header>
+  <div class="logo">&lt;/&gt; <b>Hexa TempMail</b></div>
+  <div class="sub">Temporary email + OTP — no server, runs in your browser</div>
+</header>
+<main>
+  <div class="otpbox" id="otpBox">
+    <button class="dismiss" id="otpDismiss" title="dismiss">✕</button>
+    <div class="dim" style="font-size:12.5px">LATEST OTP FOUND</div>
+    <div class="code" id="otpCode">------</div>
+    <div class="from" id="otpFrom"></div>
+    <div class="row" style="justify-content:center;margin-top:8px">
+      <button id="otpCopy">Copy OTP</button>
+      <button class="ghost only-popup" id="otpFill">এই page-এ OTP বসাও</button>
+    </div>
+  </div>
+
+  <div class="linkbox" id="linkBox">
+    <button class="dismiss" id="linkDismiss" title="dismiss">✕</button>
+    <div style="font-size:12.5px;color:#9fc2ff">VERIFICATION LINK FOUND</div>
+    <div class="u" id="linkUrl"></div>
+    <div class="row" style="justify-content:center">
+      <a class="btn" id="linkOpen" href="#" target="_blank" rel="noopener noreferrer">Open verification link</a>
+      <button class="ghost" id="linkCopy">Copy link</button>
+    </div>
+    <div class="dim" id="linkFrom" style="font-size:12.5px;margin-top:6px"></div>
+  </div>
+
+  <div class="card">
+    <h3>Your temporary email</h3>
+    <div class="row">
+      <div class="addr" id="curAddr">(no account yet)</div>
+      <button class="ghost" id="copyAddr">Copy</button>
+      <button class="ghost only-popup" id="fillEmailBtn">Form-এ email বসাও</button>
+    </div>
+    <div class="row" style="margin-top:11px">
+      <input type="text" id="prefix" placeholder="custom name (optional)" style="flex:1;min-width:130px">
+      <input type="text" id="label" placeholder="label — which site? (optional)" style="flex:1;min-width:150px">
+      <select id="domainSel" title="domain"></select>
+      <button id="newBtn">+ New Email</button>
+    </div>
+    <div class="dim" id="status" style="margin-top:8px"></div>
+    <div class="row" style="margin-top:10px">
+      <label><input type="checkbox" id="autoCopy" checked> OTP এলেই auto-copy</label>
+      <label><input type="checkbox" id="soundOn" checked> OTP এলে sound</label>
+    </div>
+    <div class="row" style="margin-top:10px">
+      <button class="ghost" id="huntBtn">সব account-এ OTP খোঁজো</button>
+      <button class="ghost" id="exportBtn">Export</button>
+      <button class="ghost" id="importBtn">Import</button>
+      <input type="file" id="importFile" accept=".json" style="display:none">
+      <button class="ghost only-popup" id="openPageBtn">বড় করে খোলো ↗</button>
+    </div>
+    <div id="acctList" style="margin-top:12px"></div>
+  </div>
+
+  <div class="card">
+    <div class="row" style="justify-content:space-between">
+      <h3 style="margin:0">Recent OTPs</h3>
+      <button class="ghost" id="histClear">Clear</button>
+    </div>
+    <div id="histList" style="margin-top:10px"><span class="dim">No codes yet.</span></div>
+  </div>
+
+  <div class="card">
+    <div class="row" style="justify-content:space-between">
+      <h3 style="margin:0">Inbox</h3>
+      <div class="row">
+        <label><input type="checkbox" id="autoRef" checked> auto-refresh (5s)</label>
+        <button class="ghost" id="refBtn">Refresh</button>
+        <span class="dim" id="lastCheck"></span>
+      </div>
+    </div>
+    <input type="text" id="searchBox" placeholder="Search inbox — subject or sender…" style="margin-top:11px">
+    <div id="inbox" style="margin-top:11px"><span class="dim">No messages yet.</span></div>
+  </div>
+
+  <div class="card" id="reader" style="display:none">
+    <h3 id="rSubj"></h3>
+    <div class="dim" id="rMeta"></div>
+    <div id="rOtps" style="margin:8px 0"></div>
+    <div id="rLinks" style="margin:8px 0"></div>
+    <pre id="rBody"></pre>
+    <button class="ghost" id="delBtn">Delete this message</button>
+  </div>
+
+  <p class="dim" style="font-size:12px">
+    Background watcher: even with the popup closed, Hexa TempMail checks your
+    inboxes about once a minute — a new OTP shows a badge + notification.
+    Many large platforms block known temp-mail domains at signup; that is
+    their rule, not a bug. Addresses are receive-only.
+  </p>
+</main>
+<script src="core.js"></script>
+<script src="fill.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
